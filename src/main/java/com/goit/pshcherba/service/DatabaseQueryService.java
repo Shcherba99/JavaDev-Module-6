@@ -2,7 +2,7 @@ package com.goit.pshcherba.service;
 
 import com.goit.pshcherba.config.Database;
 import com.goit.pshcherba.dto.*;
-import com.goit.pshcherba.util.Util;
+import com.goit.pshcherba.util.QueryLoader;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -45,7 +45,7 @@ public class DatabaseQueryService {
 
     public List<LongestProject> findLongestProjects() {
         List<LongestProject> projects = new ArrayList<>();
-        String sql = Util.readSql("./sql/find_longest_project.sql");
+        String sql = QueryLoader.readSqlScript("./sql/find_longest_project.sql");
 
         try (Connection connection = Database.getConnection();
              Statement statement = connection.createStatement()) {
@@ -67,7 +67,7 @@ public class DatabaseQueryService {
 
     public List<MaxProjectCountClient> findMaxProjectsClient() {
         List<MaxProjectCountClient> clients = new ArrayList<>();
-        String sql = Util.readSql("./sql/find_max_projects_client.sql");
+        String sql = QueryLoader.readSqlScript("./sql/find_max_projects_client.sql");
 
         try (Connection connection = Database.getConnection();
              Statement statement = connection.createStatement()) {
@@ -89,7 +89,7 @@ public class DatabaseQueryService {
 
     public List<MaxSalaryWorker> findMaxSalaryWorkers() {
         List<MaxSalaryWorker> workers = new ArrayList<>();
-        String sql = Util.readSql("./sql/find_max_salary_worker.sql");
+        String sql = QueryLoader.readSqlScript("./sql/find_max_salary_worker.sql");
 
         try (Connection connection = Database.getConnection();
              Statement statement = connection.createStatement()) {
@@ -111,7 +111,7 @@ public class DatabaseQueryService {
 
     public List<YoungestOldestWorker> findYoungestOldestWorker() {
         List<YoungestOldestWorker> workers = new ArrayList<>();
-        String sql = Util.readSql("./sql/find_youngest_oldest_workers.sql");
+        String sql = QueryLoader.readSqlScript("./sql/find_youngest_oldest_workers.sql");
 
         try (Connection connection = Database.getConnection();
              Statement statement = connection.createStatement()) {
@@ -135,7 +135,7 @@ public class DatabaseQueryService {
 
     public List<ProjectPrice> getProjectPrices() {
         List<ProjectPrice> prices = new ArrayList<>();
-        String sql = Util.readSql("./sql/print_project_prices.sql");
+        String sql = QueryLoader.readSqlScript("./sql/print_project_prices.sql");
 
         try (Connection connection = Database.getConnection();
              Statement statement = connection.createStatement()) {
